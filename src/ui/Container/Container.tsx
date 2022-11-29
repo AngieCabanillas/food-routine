@@ -28,6 +28,7 @@ export type ContainerProps = React.HTMLAttributes<HTMLDivElement> & {
   overFlowX?: CSS.Property.OverflowX;
   overFlowY?: CSS.Property.OverflowY;
   cursor?: CSS.Property.Cursor;
+  backgroundColor?: CSS.Property.BackgroundColor;
 };
 
 const Container: React.FC<ContainerProps> = (props) => {
@@ -178,5 +179,11 @@ export const StyledContainer = styled.div<ContainerProps>`
     !!height &&
     css`
       height: ${height};
+    `}
+
+    ${({ backgroundColor }) =>
+    !!backgroundColor &&
+    css`
+      background-color: ${backgroundColor};
     `}
 `;
