@@ -14,8 +14,14 @@
     - CATEGORY CELL
 */
 
+import AppRouter from "../shared/routes/AppRouter";
+
 const App = () => {
-  return <div className="app">App</div>;
+  return (
+    <div className="app">
+      <AppRouter />
+    </div>
+  );
 };
 
 export default App;

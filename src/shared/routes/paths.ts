@@ -1,4 +1,4 @@
 export default {
   root: "/",
-  recipe: (id: string) => `/recipe?uuid=${id}`,
+  recipe: (id = ":id") => `/recipe/${id}`,
 };
