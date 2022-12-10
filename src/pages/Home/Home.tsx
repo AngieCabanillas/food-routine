@@ -1,6 +1,7 @@
 import Card from "../../ui/Card";
 import Container from "../../ui/Container";
 import LayoutGeneral from "../../ui/Layouts/LayoutGeneral";
+import Categories from "./Categories";
 
 const Home = () => {
   return (
