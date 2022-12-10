@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <LayoutGeneral
       navbar={undefined}
-      categories={undefined}
+      categories={<Categories />}
       foods={
         <Container
           width="100%"
