@@ -2,17 +2,21 @@ import styled from "styled-components";
 import Button from "../Button";
 import Container from "../Container";
 
-const Card = () => {
+type CardProps = {
+  title: string;
+  src: string;
+};
+
+const Card: React.FC<CardProps> = (props) => {
   return (
     <StyledCard width="280px" height="390px" backgroundColor="#fff">
       <Container className="card__image" width="100%" height="215px">
-        Image
+        <img src={props.src} width="235px" height="200px" />
       </Container>
       <Container>
-        <p>Food name</p>
-        <p>Description</p>
+        <p>{props.title}</p>
       </Container>
-      <Button title="Button" />
+      <Button title="Add" />
     </StyledCard>
   );
 };

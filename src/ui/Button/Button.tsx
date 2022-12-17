@@ -5,13 +5,19 @@ type ButtonProps = {
   width?: string;
   height?: string;
   className?: string;
+  onClick?: () => void;
 };
 
 const Button = (props: ButtonProps) => {
-  const { title, width = "100%", height = "44px", className } = props;
+  const { title, width = "100%", height = "44px", className, onClick } = props;
 
   return (
-    <StyledButton className={className} width={width} height={height}>
+    <StyledButton
+      className={className}
+      width={width}
+      height={height}
+      onClick={onClick}
+    >
       {title}
     </StyledButton>
   );

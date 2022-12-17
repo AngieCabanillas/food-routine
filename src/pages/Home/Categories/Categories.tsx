@@ -4,7 +4,13 @@ import { getCategories } from "../../../shared/services/categoriesServices";
 import Button from "../../../ui/Button";
 import Container from "../../../ui/Container";
 
-const Categories = () => {
+type CategoriesProps = {
+  onClick: (category: string) => void;
+};
+
+const Categories: React.FC<CategoriesProps> = (props) => {
+  const { onClick } = props;
+
   const [categories, setCategories] = useState<Array<CategorieType>>([]);
 
   useEffect(() => {
@@ -24,10 +30,14 @@ const Categories = () => {
       gap="10px"
       overFlowX="auto"
     >
-      {categories.map((categorie, index) => {
+      {categories.map((category, index) => {
         return (
           <div key={index}>
-            <Button width="150px" title={categorie.strCategory} />
+            <Button
+              width="150px"
+              title={category.strCategory}
+              onClick={() => onClick(category.strCategory)}
+            />
           </div>
         );
       })}
