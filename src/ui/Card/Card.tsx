@@ -8,13 +8,15 @@ type CardProps = {
 };
 
 const Card: React.FC<CardProps> = (props) => {
+  const { src, title } = props;
+
   return (
     <StyledCard width="280px" height="390px" backgroundColor="#fff">
       <Container className="card__image" width="100%" height="215px">
-        <img src={props.src} width="235px" height="200px" />
+        <img src={src} alt={title} width="235px" height="200px" />
       </Container>
       <Container>
-        <p>{props.title}</p>
+        <p>{title}</p>
       </Container>
       <Button title="Add" />
     </StyledCard>
