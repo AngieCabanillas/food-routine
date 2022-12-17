@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { RecipesProvider } from "../../shared/contexts/RecipesProvider";
 import { RecipeType } from "../../shared/models/recipes.model";
 import { getRecipes } from "../../shared/services/recipesService";
 import Card from "../../ui/Card";
@@ -17,32 +18,36 @@ const Home = () => {
   };
 
   return (
-    <LayoutGeneral
-      navbar={"FOOD ROUTINE"}
-      categories={<Categories onClick={(category) => onClickCard(category)} />}
-      foods={
-        <Container
-          width="100%"
-          height="100%"
-          display="flex"
-          flexWrap="wrap"
-          gap="24px"
-          padding="24px"
-          overFlowY="auto"
-        >
-          {recipes.map((recipe) => {
-            return (
-              <Card
-                key={recipe.idMeal}
-                src={recipe.strMealThumb}
-                title={recipe.strMeal}
-              />
-            );
-          })}
-        </Container>
-      }
-      aside={undefined}
-    />
+    <RecipesProvider>
+      <LayoutGeneral
+        navbar={"FOOD ROUTINE"}
+        categories={
+          <Categories onClick={(category) => onClickCard(category)} />
+        }
+        foods={
+          <Container
+            width="100%"
+            height="100%"
+            display="flex"
+            flexWrap="wrap"
+            gap="24px"
+            padding="24px"
+            overFlowY="auto"
+          >
+            {recipes.map((recipe) => {
+              return (
+                <Card
+                  key={recipe.idMeal}
+                  src={recipe.strMealThumb}
+                  title={recipe.strMeal}
+                />
+              );
+            })}
+          </Container>
+        }
+        aside={undefined}
+      />
+    </RecipesProvider>
   );
 };
 
