@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "../../../pages/Home";
 import Recipe from "../../../pages/Recipe";
 import { RecipesProvider } from "../../contexts/RecipesProvider";
-import paths from "../paths";
+import { paths } from "../paths";
 
 const AppRouter = () => {
   return (
