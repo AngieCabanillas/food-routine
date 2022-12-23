@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { usePersistedState } from "../hooks/usePersistedState";
 import { RecipeType } from "../models/recipes.model";
 
 export const RecipesContext = createContext<{
@@ -24,7 +25,10 @@ type RecipeProviderProps = {
 export const RecipesProvider: React.FC<RecipeProviderProps> = ({
   children,
 }) => {
-  const [recipes, setRecipes] = useState<Array<RecipeType>>([]);
+  const [recipes, setRecipes] = usePersistedState<Array<RecipeType>>(
+    "recipes",
+    []
+  );
 
   const addRecipe = (recipe: RecipeType) => {
     setRecipes((prev) => [...prev, recipe]);
