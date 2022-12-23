@@ -1,14 +1,21 @@
 import styled from "styled-components";
+import { RecipeType } from "../../shared/models/recipes.model";
 import Button from "../Button";
 import Container from "../Container";
 
 type CardProps = {
+  id: string;
   title: string;
   src: string;
+  onClick: (data: RecipeType) => void;
 };
 
 const Card: React.FC<CardProps> = (props) => {
-  const { src, title } = props;
+  const { id, src, title, onClick } = props;
+
+  const onClickCard = () => {
+    onClick({ idMeal: id, strMeal: title, strMealThumb: src });
+  };
 
   return (
     <StyledCard width="280px" height="390px" backgroundColor="#fff">
@@ -18,7 +25,7 @@ const Card: React.FC<CardProps> = (props) => {
       <Container>
         <p>{title}</p>
       </Container>
-      <Button title="Add" />
+      <Button title="Add" onClick={onClickCard} />
     </StyledCard>
   );
 };
